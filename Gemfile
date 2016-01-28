@@ -26,3 +26,5 @@ end
 
 gem 'slim-rails'
 gem 'devise'
+
+gem 'vuejs-rails'
