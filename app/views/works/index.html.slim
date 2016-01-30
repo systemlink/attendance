@@ -2,7 +2,7 @@
   header
     a.prev href="javascript:void(0)" <
     a.next href="javascript:void(0)" >
-    p.title 2016年 1月
+    p.title = "{{ year }}年 {{ month }}月"
   div.calendar
     header
       p 日
@@ -13,6 +13,5 @@
       p 金
       p 土
     div
-      - (Date.new(2015, 12, 27)..Date.new(2016,2,6)).each do |date|
-        section.day
-          p.title = date.day
+      section.day v-for="work in works"
+        p.title v-text="work.date.format('D')"
