@@ -1,4 +1,4 @@
 window.ViewModels = {}
 
 $(document).on 'ready page:load', =>
-  new ViewModels.Work(el: '#works') if $('#works')[0]
+  new ViewModels.WorkIndex(el: '#works') if $('#works')[0]
