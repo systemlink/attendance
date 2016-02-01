@@ -20,8 +20,8 @@ ViewModels.Work = Vue.extend
       endPosition = if endDate.day() == 0 then 0 else 7 - endDate.day()
       endDate.add endPosition, 'days'
       result = []
-      until cur.month() == endDate.month() and cur.date() > endDate.date()
-        result.push @toMoment(cur.year(), cur.month() + 1, cur.date())
+      until cur.diff(endDate, 'days') > 0
+        result.push cur.clone()
         cur.add 1, 'days'
       result
     toMoment: (year = @year, month = @month, date = 1) ->
