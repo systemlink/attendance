@@ -1,7 +1,7 @@
 #works
   header
-    a.prev href="javascript:void(0)" <
-    a.next href="javascript:void(0)" >
+    a.prev href="javascript:void(0)" @click="prev" <
+    a.next href="javascript:void(0)" @click="next" >
     p.title = "{{ year }}年 {{ month }}月"
   div.calendar
     header
@@ -13,5 +13,5 @@
       p 金
       p 土
     div
-      section.day v-for="work in works"
-        p.title v-text="work.date.format('D')"
+      section.day v-for="date in dates()"
+        p.title v-text="date.format('D')"
