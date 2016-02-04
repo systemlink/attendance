@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :set_works, only: [:index]
+  before_action :set_works, only: [:index], if: -> { request.format.json? }
 
   def index
   end
