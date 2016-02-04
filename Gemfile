@@ -16,6 +16,9 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'json_expressions'
+  gem 'timecop'
+  gem 'database_cleaner'
 end
 
 group :development do
