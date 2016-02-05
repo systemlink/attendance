@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Work.delete_all
+Work.create!(started_at: DateTime.new(2016, 2, 4, 9),
+    ended_at: DateTime.new(2016, 2, 4, 18),
+    times: 8,
+    note: '勤務表システム作成')
