@@ -4,6 +4,17 @@ ViewModels.WorkIndex = Vue.extend
     year: moment().year()
     month: moment().month() + 1
 
+  computed:
+    # カレンダーに表示する日付一覧
+    # @return {Array} 現在年月の日付一覧
+    dates: ->
+      cur = @startDate()
+      result = [cur.clone()]
+      while cur.diff(@endDate(), 'days') < 0
+        cur.add 1, 'days'
+        result.push cur.clone()
+      result
+
   methods:
     # 次月イベント処理
     next: ->
@@ -15,15 +26,6 @@ ViewModels.WorkIndex = Vue.extend
       prev = @toMoment().add -1, 'months'
       @year = prev.year()
       @month = prev.month() + 1
-    # カレンダーに表示する日付一覧
-    # @return {Array} 現在年月の日付一覧
-    dates: ->
-      cur = @startDate()
-      result = [cur.clone()]
-      while cur.diff(@endDate(), 'days') < 0
-        cur.add 1, 'days'
-        result.push cur.clone()
-      result
     # カレンダーの開始日付を返します
     startDate: ->
       date = @toMoment().startOf('month')
