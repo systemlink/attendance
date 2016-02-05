@@ -17,16 +17,8 @@
   header {
     height: 50px;
     p {
-      font-size: 20px;
       text-align: center;
-      font-weight: bold;
       width: 120px;
-      &:first-child {
-        color: #ff0000;
-      }
-      &:last-child {
-        color: #0000ff;
-      }
     }
   }
 }
@@ -45,17 +37,7 @@
 }
 
 a {
-  &.prev {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 50px;
-    height: 15px;
-    text-align: center;
-    border: 1px solid;
-    border-color: #aaaaaa #444444 #444444 #aaaaaa;
-  }
-  &.next {
-    margin-left: -1px;
+  &.prev, &.next {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 50px;

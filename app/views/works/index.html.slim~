@@ -13,6 +13,6 @@
       p 木
       p 金
       p 土
-    div.calendar-day
+    div
       section.day v-for="date in dates()"
         p.title v-text="date.format('D')"
