@@ -3,6 +3,20 @@ ViewModels.WorkIndex = Vue.extend
   data: ->
     year: moment().year()
     month: moment().month() + 1
+    works: []
+
+  ready: -> @getWorks()
+
+  computed:
+    # カレンダーに表示する日付一覧
+    # @return {Array} 現在年月の日付一覧
+    dates: ->
+      cur = @startDate()
+      result = [cur.clone()]
+      while cur.diff(@endDate(), 'days') < 0
+        cur.add 1, 'days'
+        result.push cur.clone()
+      result
 
   methods:
     # 次月イベント処理
@@ -15,15 +29,6 @@ ViewModels.WorkIndex = Vue.extend
       prev = @toMoment().add -1, 'months'
       @year = prev.year()
       @month = prev.month() + 1
-    # カレンダーに表示する日付一覧
-    # @return {Array} 現在年月の日付一覧
-    dates: ->
-      cur = @startDate()
-      result = [cur.clone()]
-      while cur.diff(@endDate(), 'days') < 0
-        cur.add 1, 'days'
-        result.push cur.clone()
-      result
     # カレンダーの開始日付を返します
     startDate: ->
       date = @toMoment().startOf('month')
@@ -38,3 +43,20 @@ ViewModels.WorkIndex = Vue.extend
     # @return {Moment} 現在年月。日にちは 1 固定　
     toMoment: ->
       moment("#{@year}/#{@month}/1", 'YYYY/M/D')
+    # 登録済みかいなか
+    isSettled: (date) ->
+      ret = _.find @works, (work) =>
+        moment(work.started_at, 'YYYY/M/D h:mm').format('YYYYMMDD') == date.format('YYYYMMDD')
+      ret?
+    #
+    getWorks: ->
+      params =
+        search_started_at: @startDate().format('YYYY/MM/DD')
+        search_ended_at: @endDate().format('YYYY/MM/DD')
+      $.ajax
+        type: 'GET'
+        url: '/works.json'
+        data: params
+        async: false
+      .done (res) =>
+        @works = res.works

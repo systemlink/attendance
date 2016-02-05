@@ -64,6 +64,10 @@
         padding: 10px 0px 0px 10px;
         width: calc((100% - 84px) / 7);
         min-height: 60px;
+
+        &.settled {
+          background-color: #eaeaea;
+        }
       }
     }
   }
