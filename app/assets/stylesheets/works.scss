@@ -45,7 +45,8 @@
         font-size: 20px;
         text-align: center;
         font-weight: bold;
-        width: calc((100% - 14px) / 7);
+        padding: 10px 0px 0px 10px;
+        width: calc((100% - 84px) / 7);
         &:last-child {
           color: #ff0000;
         }
@@ -60,8 +61,8 @@
       .day {
         border: 1px solid;
         margin: -1px 0px 0px -1px;
-        text-align: right;
-        width: calc((100% - 14px) / 7);
+        padding: 10px 0px 0px 10px;
+        width: calc((100% - 84px) / 7);
         min-height: 60px;
       }
     }
