@@ -8,26 +8,26 @@
     .title {
       margin-left: 20px;
     }
-  }
-  a {
-    &.prev {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      width: 50px;
-      height: 15px;
-      text-align: center;
-      border: 1px solid;
-      border-color: #aaaaaa #444444 #444444 #aaaaaa;
-    }
-    &.next {
-      margin-left: -1px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      width: 50px;
-      height: 15px;
-      text-align: center;
-      border: 1px solid;
-      border-color: #aaaaaa #444444 #444444 #aaaaaa;
+    a {
+      &.prev {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 50px;
+        height: 15px;
+        text-align: center;
+        border: 1px solid;
+        border-color: #aaaaaa #444444 #444444 #aaaaaa;
+      }
+      &.next {
+        margin-left: -1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 50px;
+        height: 15px;
+        text-align: center;
+        border: 1px solid;
+        border-color: #aaaaaa #444444 #444444 #aaaaaa;
+      }
     }
   }
   .calendar {
@@ -55,16 +55,16 @@
         }
       }
     }
-  }
-  .calendar-day {
-    display:flex;
-    flex-flow: row wrap;
-    .day {
-      border: 1px solid;
-      margin: -1px 0px 0px -1px;
-      text-align: right;
-      width: 120px;
-      height: 60px;
+    .calendar-day {
+      display:flex;
+      flex-flow: row wrap;
+      .day {
+        border: 1px solid;
+        margin: -1px 0px 0px -1px;
+        text-align: right;
+        width: 120px;
+        height: 60px;
+      }
     }
   }
 }
