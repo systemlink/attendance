@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require vue
 //= require moment
+//= require underscore
 //= require vue-moment
 //= require_directory .
 //= require_tree ./vue

@@ -64,6 +64,10 @@
         text-align: right;
         width: 120px;
         height: 60px;
+
+        &.settled {
+          background-color: #eaeaea;
+        }
       }
     }
   }

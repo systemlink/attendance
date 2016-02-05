@@ -13,5 +13,5 @@
       p 土
       p 日
     div.calendar-day
-      section.day v-for="date in dates"
+      section.day v-for="date in dates" :class="{ 'settled': isSettled(date) }"
         p.title v-text="date.format('D')"
