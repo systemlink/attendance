@@ -10,3 +10,7 @@ Work.create!(started_at: DateTime.new(2016, 2, 4, 9),
     ended_at: DateTime.new(2016, 2, 4, 18),
     times: 8,
     note: '勤務表システム作成')
+  Work.create!(started_at: DateTime.new(2016, 3, 10, 9),
+      ended_at: DateTime.new(2016, 3, 10, 18),
+      times: 8,
+      note: '勤務表システム作成')

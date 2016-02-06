@@ -24,11 +24,13 @@ ViewModels.WorkIndex = Vue.extend
       next = @toMoment().add 1, 'months'
       @year = next.year()
       @month = next.month() + 1
+      @getWorks()
     # 前月イベント処理
     prev: ->
       prev = @toMoment().add -1, 'months'
       @year = prev.year()
       @month = prev.month() + 1
+      @getWorks()
     # カレンダーの開始日付を返します
     startDate: ->
       date = @toMoment().startOf('month')
@@ -48,7 +50,7 @@ ViewModels.WorkIndex = Vue.extend
       ret = _.find @works, (work) =>
         moment(work.started_at, 'YYYY/M/D h:mm').format('YYYYMMDD') == date.format('YYYYMMDD')
       ret?
-    #
+    # 登録済みの勤務データを取得
     getWorks: ->
       params =
         search_started_at: @startDate().format('YYYY/MM/DD')
