@@ -4,6 +4,9 @@ class WorksController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   private
 
   def set_works
