@@ -1,0 +1,16 @@
+#works_new
+   header.top
+     button.return @click="javascript:void(0)" ↩
+     button.save @click="javascript:void(0)" 保存
+     button.destroy @click="javascript:void(0)" 破棄
+   div.work-contents
+       div.contents-details
+         textarea placeholder="作業内容"
+       div.work-datetime
+         input#startDate type="date"
+         input#startDateTime type="time"
+         span.separator 〜
+         input#endDate type="date"
+         input#endDateTime type="time"
+       div.option
+         input#chkRepeat type="checkbox" 繰り返し
