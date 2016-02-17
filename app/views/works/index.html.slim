@@ -15,4 +15,4 @@
     div.calendar-day
       section.day v-for="date in dates" :class="{ 'settled': isSettled(date) }"
         p.title v-text="date.format('D')"
-        p.note v-text="getTagetYmd4Note(date)"
+        p.note v-text="getNote(date)"

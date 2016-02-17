@@ -63,7 +63,7 @@ ViewModels.WorkIndex = Vue.extend
       .done (res) =>
         @works = res.works
     # 対象年月日の作業内容を取得
-    getTagetYmd4Note: (date) ->
+    getNote: (date) ->
       ret = _.find @works, (work) =>
         @isSettled(date)
       ret = if ret? then ret.note else ""
