@@ -5,6 +5,13 @@ class WorksController < ApplicationController
   end
 
   def new
+    @work = Work.new
+  end
+
+  def create
+    @work = Work.new(work_params)
+    @work.save
+    request.format.json?
   end
 
   private
@@ -19,5 +26,9 @@ class WorksController < ApplicationController
 
   def params_search_ended_at
     params.require(:search_ended_at)
+  end
+
+  def work_params
+   params.require(:work).permit(:started_at, :ended_at, :times, :note)
   end
 end
