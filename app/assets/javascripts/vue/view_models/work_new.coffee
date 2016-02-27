@@ -14,19 +14,22 @@ ViewModels.WorkNew = Vue.extend
       moment(date + " " + datetime)
 
     # 勤務データを作成
-    setWorks: ->
+    submit: ->
 
       started_dateTime = @toMoment(@startDate, @startDateTime)
       ended_dateTime = @toMoment(@endDate, @endDateTime)
       params =
-          'work' :
+        'work':
             started_at: started_dateTime.format('YYYY/MM/DD H:mm')
             ended_at: ended_dateTime.format('YYYY/MM/DD H:mm')
-            times:ended_dateTime.diff(started_dateTime, 'hours')
+            times:ended_dateTime.diff(started_dateTime, 'minutes')
             note:@note
 
       $.ajax({
          type: 'POST',
-         url: '/works.json'
-         data: params
+         url: '/works.json',
+         data: params,
+         success: (data, status) ->
+            alert data.message + "　ステータス：" + status
+         dataType: "json"
       });

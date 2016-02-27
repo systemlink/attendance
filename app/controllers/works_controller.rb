@@ -10,8 +10,12 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-    @work.save
-    request.format.json?
+    ActiveRecord::Base.transaction do
+      @work.save!
+      respond_to do |format|
+        format.json { render json: { message: "勤務データを作成しました。"}, status: 201 }
+      end
+    end
   end
 
   private
