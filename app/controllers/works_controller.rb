@@ -33,6 +33,6 @@ class WorksController < ApplicationController
   end
 
   def work_params
-   params.require(:work).permit(:started_at, :ended_at, :times, :note)
+    params.require(:work).permit(:started_at, :ended_at, :times, :note)
   end
 end

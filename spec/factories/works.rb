@@ -5,4 +5,9 @@ FactoryGirl.define do
     times        480
     note         "勤務システム作成"
   end
+
+  trait :params do
+    started_at   "2016/2/4 9:00"
+    ended_at     "2016/2/4 18:00"
+  end
 end
