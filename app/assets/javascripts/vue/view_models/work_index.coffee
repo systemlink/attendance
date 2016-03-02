@@ -47,8 +47,7 @@ ViewModels.WorkIndex = Vue.extend
       moment("#{@year}/#{@month}/1", 'YYYY/M/D')
     # 登録済みかいなか
     isSettled: (date) ->
-      ret = @getWork(date)
-      ret = if Object.keys(ret).length != 0 then true else false
+      Object.keys(@getWork(date)).length != 0
     # 登録済みの勤務データを取得
     getWorks: ->
       params =
