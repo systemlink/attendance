@@ -47,9 +47,7 @@ ViewModels.WorkIndex = Vue.extend
       moment("#{@year}/#{@month}/1", 'YYYY/M/D')
     # 登録済みかいなか
     isSettled: (date) ->
-      ret = _.find @works, (work) =>
-        moment(work.started_at, 'YYYY/M/D h:mm').format('YYYYMMDD') == date.format('YYYYMMDD')
-      ret?
+      Object.keys(@getWork(date)).length != 0
     # 登録済みの勤務データを取得
     getWorks: ->
       params =
@@ -62,8 +60,8 @@ ViewModels.WorkIndex = Vue.extend
         async: false
       .done (res) =>
         @works = res.works
-    # 対象年月日の作業内容を取得
-    getNote: (date) ->
+    # 対象年月日の勤務データを取得
+    getWork: (date) ->
       ret = _.find @works, (work) =>
-        @isSettled(date)
-      ret = if ret? then ret.note else ""
+        moment(work.started_at, 'YYYY/M/D h:mm').format('YYYYMMDD') == date.format('YYYYMMDD')
+      ret = if ret? then ret else {}
